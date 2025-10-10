@@ -202,60 +202,41 @@
 <script>
   const carousel = document.getElementById("carousel-content");
   const items = document.querySelectorAll(".carousel-item");
+  const itemCount = items.length;
+  const visibleCount = Math.floor(carousel.parentElement.offsetWidth / (items[0].offsetWidth + 20)); // Items that fit in the viewport
 
-  // Calculate visible items based on container and item width
-  function getVisibleCount() {
-    const container = carousel.parentElement;
-    const itemWidth = items[0].offsetWidth + 20; // includes margin
-    return Math.floor(container.offsetWidth / itemWidth);
-  }
-
-  // Add number of items display above carousel
-  const itemCountDisplay = document.createElement("div");
-  itemCountDisplay.style.textAlign = "center";
-  itemCountDisplay.style.marginBottom = "10px";
-  itemCountDisplay.style.fontWeight = "bold";
-  itemCountDisplay.textContent = `Certifications: ${items.length}`;
-  carousel.parentElement.insertBefore(itemCountDisplay, carousel);
-
-  // Clone enough items for seamless rotation (visible + 1 extra)
-  const visibleCount = getVisibleCount();
-  for (let i = 0; i < visibleCount + 1; i++) {
-    carousel.appendChild(items[i % items.length].cloneNode(true));
+  // Clone first 'visibleCount' items and append for seamless loop
+  for (let i = 0; i < visibleCount; i++) {
+    carousel.appendChild(items[i].cloneNode(true));
   }
 
   let index = 0;
-  let transitioning = false;
+  let isResetting = false;
 
   function rotateCarousel() {
-    if (transitioning) return;
-
+    if (isResetting) return;
     index++;
     const itemWidth = items[0].offsetWidth + 20;
     carousel.style.transition = "transform 0.6s ease";
     carousel.style.transform = `translateX(-${itemWidth * index}px)`;
 
-    // Reset when at the end of the loop
-    if (index === items.length + 1) {
-      transitioning = true;
+    // If we've reached the end of the original items, reset instantly
+    if (index === itemCount) {
+      isResetting = true;
       setTimeout(() => {
         carousel.style.transition = "none";
         carousel.style.transform = "translateX(0px)";
         index = 0;
-        transitioning = false;
-      }, 600); // match the transition duration
+        isResetting = false;
+      }, 600); // Match transition duration
     }
   }
 
   setInterval(rotateCarousel, 3000);
-
-  // Responsive: recalculate on resize (optional, for more advanced use)
-  // window.addEventListener("resize", () => {
-  //   location.reload(); // simplest way to refresh layout
-  // });
 </script>
 </body>
 </html>
+
 
 
 
