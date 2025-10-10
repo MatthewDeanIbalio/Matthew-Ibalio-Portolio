@@ -198,20 +198,43 @@
     © 2025 Matthew Ibalio | Built with ❤️ and Excel
   </footer>
 
-  <!-- Carousel Script -->
-  <script>
-    const carousel = document.getElementById("carousel-content");
-    const items = document.querySelectorAll(".carousel-item");
-    let index = 0;
+ <!-- Carousel Script -->
+<script>
+  const carousel = document.getElementById("carousel-content");
+  const items = document.querySelectorAll(".carousel-item");
+  const itemCount = items.length;
+  const visibleCount = Math.floor(carousel.parentElement.offsetWidth / (items[0].offsetWidth + 20)); // Items that fit in the viewport
 
-    function rotateCarousel() {
-      index = (index + 1) % items.length;
-      const width = items[0].offsetWidth + 20; // Include margin
-      carousel.style.transform = `translateX(-${width * index}px)`;
+  // Clone first 'visibleCount' items and append for seamless loop
+  for (let i = 0; i < visibleCount; i++) {
+    carousel.appendChild(items[i].cloneNode(true));
+  }
+
+  let index = 0;
+  let isResetting = false;
+
+  function rotateCarousel() {
+    if (isResetting) return;
+    index++;
+    const itemWidth = items[0].offsetWidth + 20;
+    carousel.style.transition = "transform 0.6s ease";
+    carousel.style.transform = `translateX(-${itemWidth * index}px)`;
+
+    // If we've reached the end of the original items, reset instantly
+    if (index === itemCount) {
+      isResetting = true;
+      setTimeout(() => {
+        carousel.style.transition = "none";
+        carousel.style.transform = "translateX(0px)";
+        index = 0;
+        isResetting = false;
+      }, 600); // Match transition duration
     }
+  }
 
-    setInterval(rotateCarousel, 3000);
-  </script>
+  setInterval(rotateCarousel, 3000);
+</script>
 </body>
 </html>
+
 
