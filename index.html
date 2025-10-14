@@ -1,64 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Matthew Ibalio Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matthew Ibalio | Real Estate Investment Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 5px 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      transition: box-shadow 0.2s ease;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .project-card h3 {
+      margin-top: 0;
+    }
+    .project-card a {
+      text-decoration: none;
+      color: #0066cc;
+      word-break: break-all;
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 20px;
+      background: #eee;
+    }
+    /* Carousel */
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f2f2f2;
+      padding: 20px;
+      border-top: 2px solid #ddd;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-content {
+      display: flex;
+      transition: transform 0.6s ease;
+      will-change: transform;
+    }
+    .carousel-item {
+      flex: 0 0 auto;
+      padding: 10px 25px;
+      font-size: 1rem;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      background: #fff;
+      margin: 0 10px;
+      border: 1px solid #ccc;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .section h2 {
+        font-size: 1.4rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Header -->
   <header>
-    <h1>Matthew Ibalio Portfolio</h1>
-    <p>
+    <h1>Matthew Ibalio</h1>
+    <p>Real Estate Investment & Financial Modeling Portfolio</p>
+    <p>Email: ibalio.matthew@gmail.com | 
       <a href="https://linkedin.com/in/mibalio" style="color:#80d4ff;">LinkedIn</a>
     </p>
   </header>
 
+  <!-- Main Container -->
   <div class="container">
+    <!-- About Me -->
     <div class="section">
       <h2>About Me</h2>
-      <!-- Add your about section content here -->
+      <p>
+        I'm a CFA Level 1 candidate and MBA student focused on Real Estate Investment & Finance.
+        I'm building a career in portfolio management with a specialization in REITs, multifamily, and commercial real estate.
+        This site showcases my investment modeling work, scenario analyses, and ongoing portfolio projects.
+      </p>
     </div>
 
+    <!-- Featured Projects Grid -->
     <div class="section">
       <h2>Featured Projects</h2>
       <div class="projects-grid">
-
         <div class="project-card">
           <h3>📈 $1,000 Real Investment Portfolio</h3>
-          <p>Live-tracked portfolio focused on real estate, equities, and bonds.</p>
-          <a href="investment-memos.html" target="_blank">View Memos</a>
+          <p>Live-tracked portfolio focused on real estate, equities, and bonds with monthly updates and performance tracking.</p>
+          <a href="investment-memos.html" target="_blank">
+            View Memos
+          </a>
         </div>
 
         <div class="project-card">
           <h3>🏠 Multifamily Valuation Model</h3>
-          <p>Scenario analysis of a multifamily asset using DCF and IRR.</p>
-          <a href="multifamily-models.html" target="_blank">View Models</a>
+          <p>Scenario analysis of a multifamily asset using DCF and IRR modeling across best, base, and worst-case projections.</p>
+          <a href="multifamily-models.html" target="_blank">
+            View Models
+          </a>
         </div>
 
         <div class="project-card">
           <h3>🏢 REIT Analysis – AvalonBay (AVB)</h3>
           <p>Buy/Hold/Sell recommendation with macroeconomic insights, valuation comps, and regional outlook.</p>
-          <a href="reit-reports.html" target="_blank">View Reports</a>
+          <a href="reit-reports.html" target="_blank">
+            View Reports
+          </a>
         </div>
 
         <div class="project-card">
           <h3>📊 3-Statement Model – Zillow</h3>
-          <p>Comprehensive financial model including ratios, DCF valuation, and strategic insights.</p>
-          <a href="zillow-models.html" target="_blank">View Models</a>
+          <p>Comprehensive financial model including ratios, DCF valuation, and strategic insights from public filings.</p>
+          <a href="zillow-models.html" target="_blank">
+            View Models
+          </a>
         </div>
-
       </div>
     </div>
 
+    <!-- Resume + Contact -->
     <div class="section">
       <h2>Resume & Contact</h2>
       <p>
-        <a href="Matt_Ibalio_Resume.pdf" target="_blank">Download My Resume (PDF)</a>
+        <a href="Matt_Ibalio_Resume.pdf" target="_blank">
+          Download My Resume (PDF)
+        </a>
       </p>
       <p>
-        Feel free to connect on <a href="https://linkedin.com/in/mibalio">LinkedIn</a> or reach out.
+        Feel free to connect on <a href="https://linkedin.com/in/mibalio">LinkedIn</a> or reach out via email.
       </p>
     </div>
   </div>
+
+  <!-- Certifications Carousel -->
+  <div class="carousel" id="carousel">
+    <div class="carousel-content" id="carousel-content">
+      <a href="https://yourlink.com/mba" class="carousel-item">🎓 MBA – Real Estate Investment & Finance</a>
+      <a href="https://yourlink.com/cfa" class="carousel-item">📈 CFA Level 1 – Candidate (Nov 2025)</a>
+      <a href="https://yourlink.com/fmva" class="carousel-item">📊 FMVA – In Progress</a>
+      <a href="https://yourlink.com/sie" class="carousel-item">💼 FINRA SIE – Planned (End of 2025)</a>
+      <a href="https://yourlink.com/caia" class="carousel-item">🏦 CAIA – Long-Term Goal</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Matthew Ibalio | Built with ❤️ and Excel
+  </footer>
+
+<script>
+  const carousel = document.getElementById("carousel-content");
+  const items = document.querySelectorAll(".carousel-item");
+  const itemCount = items.length;
+  const visibleCount = Math.floor(carousel.parentElement.offsetWidth / (items[0].offsetWidth + 20));
+  for (let i = 0; i < visibleCount; i++) {
+    carousel.appendChild(items[i].cloneNode(true));
+  }
+  let index = 0;
+  let isResetting = false;
+  function rotateCarousel() {
+    if (isResetting) return;
+    index++;
+    const itemWidth = items[0].offsetWidth + 20;
+    carousel.style.transition = "transform 0.6s ease";
+    carousel.style.transform = `translateX(-${itemWidth * index}px)`;
+    if (index === itemCount) {
+      isResetting = true;
+      setTimeout(() => {
+        carousel.style.transition = "none";
+        carousel.style.transform = "translateX(0px)";
+        index = 0;
+        isResetting = false;
+      }, 600);
+    }
+  }
+  setInterval(rotateCarousel, 3000);
+</script>
 </body>
 </html>
