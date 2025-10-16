@@ -5,6 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Matthew Ibalio | Real Estate Investment Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7fafd;
+      color: #1a202c;
+    }
+    header {
+      background: #222d3c;
+      color: #fff;
+      padding: 30px 0 15px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.6rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 6px 0;
+      color: #b5cee8;
+    }
+    .container {
+      max-width: 950px;
+      margin: 30px auto 30px auto;
+      padding: 0 18px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px #e3e8f0;
+    }
+    .section {
+      margin-bottom: 34px;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      color: #2e5a88;
+      margin-bottom: 7px;
+      margin-top: 0;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 13px;
+    }
+    .project-card {
+      background: #f4f7fb;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #e9eef4;
+      padding: 20px 18px 15px 18px;
+      flex: 1 1 260px;
+      min-width: 240px;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow .18s;
+    }
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 1.08rem;
+      color: #235aa6;
+    }
+    .project-card p {
+      font-size: 0.99rem;
+      margin-bottom: 10px;
+      color: #43546c;
+      flex: 1;
+    }
+    .project-card a {
+      color: #2362c7;
+      text-decoration: underline;
+      font-weight: 600;
+      font-size: 0.97rem;
+      margin-top: 5px;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #2362c7;
+      text-decoration: underline;
+    }
+    .carousel {
+      background: #e9f3fb;
+      padding: 10px 0;
+      overflow: hidden;
+      margin-top: 30px;
+      border-top: 1px solid #b6d4ee;
+      border-bottom: 1px solid #b6d4ee;
+    }
+    .carousel-content {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      transition: transform 0.6s;
+      will-change: transform;
+      width: max-content;
+    }
+    .carousel-item {
+      padding: 0 32px;
+      font-size: 1.01rem;
+      color: #253a5e;
+      white-space: nowrap;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .carousel-item:hover { color: #235aa6; text-decoration: underline; }
+    footer {
+      color: #b6cee3;
+      background: #222d3c;
+      text-align: center;
+      padding: 22px;
+      font-size: 1rem;
+      margin-top: 48px;
+      letter-spacing: 0.6px;
+    }
+    @media (max-width: 680px) {
+      .projects-grid { flex-direction: column; }
+      .project-card { min-width: 0; }
+      .carousel-item { padding: 0 10px; font-size: 0.99rem; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -73,15 +198,13 @@
     © 2025 Matthew Ibalio | Built with ❤️ and Excel
   </footer>
 <script>
+  // Simple carousel slider for achievements
   const carousel = document.getElementById("carousel-content");
   const items = document.querySelectorAll(".carousel-item");
   const itemCount = items.length;
-  const visibleCount = Math.floor(carousel.parentElement.offsetWidth / (items[0].offsetWidth + 20));
-  for (let i = 0; i < visibleCount; i++) {
-    carousel.appendChild(items[i].cloneNode(true));
-  }
   let index = 0;
   let isResetting = false;
+
   function rotateCarousel() {
     if (isResetting) return;
     index++;
@@ -98,7 +221,7 @@
       }, 600);
     }
   }
-  setInterval(rotateCarousel, 3000);
+  setInterval(rotateCarousel, 3200);
 </script>
 </body>
 </html>
